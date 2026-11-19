@@ -1,0 +1,68 @@
+send:
+  fields:
+    who:
+      required: true
+      example: home
+      selector:
+        select:
+          custom_value: true
+          options:
+            - home
+            - away
+            - all
+    fallback:
+      example: all
+      selector:
+        select:
+          custom_value: true
+          options:
+            - home
+            - away
+            - all
+    devices:
+      example: phone
+      selector:
+        select:
+          multiple: true
+          options:
+            - phone
+            - tablet
+            - computer
+            - other
+    title:
+      example: Laundry
+      selector:
+        text:
+    message:
+      required: true
+      example: Washer cycle finished
+      selector:
+        text:
+          multiline: true
+    data:
+      example: '{"push": {"interruption-level": "time-sensitive"}}'
+      selector:
+        object:
+
+targets:
+  fields:
+    who:
+      required: true
+      example: home
+      selector:
+        select:
+          custom_value: true
+          options:
+            - home
+            - away
+            - all
+    devices:
+      example: phone
+      selector:
+        select:
+          multiple: true
+          options:
+            - phone
+            - tablet
+            - computer
+            - other

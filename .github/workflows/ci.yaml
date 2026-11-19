@@ -1,0 +1,38 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+# GitHub-hosted runners: the repository is public (HACS installs only from
+# public repositories), and the org's self-hosted runners are not offered to
+# public repositories, where a fork's pull request could run code on them.
+jobs:
+  test:
+    name: Tests
+    uses: ./.github/workflows/test.yaml
+
+  hassfest:
+    name: hassfest
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      # home-assistant/actions publishes no releases; pinned to master's
+      # commit on the date shown. Refresh by hand with HA releases.
+      - uses: home-assistant/actions/hassfest@86d4564712fa02543c808e3a693dd04f9d3f8361 # master, 2026-10-26
+
+  hacs:
+    name: HACS
+    uses: ./.github/workflows/validate.yaml

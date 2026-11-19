@@ -1,0 +1,48 @@
+{
+  "services": {
+    "send": {
+      "name": "Send to people",
+      "description": "Notify people through the Companion apps they are signed in to, selected by whether they are home and by device type.",
+      "fields": {
+        "who": {
+          "name": "Who",
+          "description": "home, away (any state other than home), all, or person entity IDs."
+        },
+        "fallback": {
+          "name": "Fallback",
+          "description": "Who to notify instead when 'who' reaches no devices (e.g. nobody is home). No default: if omitted, nothing is sent in that case."
+        },
+        "devices": {
+          "name": "Devices",
+          "description": "Device types to notify: phone, tablet, computer, other. Default: every type (or the 'devices' setting in configuration.yaml). Android always counts as phone."
+        },
+        "title": {
+          "name": "Title",
+          "description": "Notification title."
+        },
+        "message": {
+          "name": "Message",
+          "description": "Notification body."
+        },
+        "data": {
+          "name": "Data",
+          "description": "Passed through to the Companion app (actions, tag, group, push options)."
+        }
+      }
+    },
+    "targets": {
+      "name": "Show targets",
+      "description": "Return the people and notify actions 'who' resolves to, without sending anything.",
+      "fields": {
+        "who": {
+          "name": "Who",
+          "description": "home, away, all, or person entity IDs."
+        },
+        "devices": {
+          "name": "Devices",
+          "description": "Device types to notify: phone, tablet, computer, other. Default: every type (or the 'devices' setting in configuration.yaml). Android always counts as phone."
+        }
+      }
+    }
+  }
+}

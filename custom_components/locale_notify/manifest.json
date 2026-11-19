@@ -1,0 +1,12 @@
+{
+  "domain": "locale_notify",
+  "name": "Locale Notify",
+  "after_dependencies": ["mobile_app", "notify", "person"],
+  "codeowners": ["@gdoerr"],
+  "documentation": "https://github.com/Locale-Systems/hass-locale-notify",
+  "integration_type": "service",
+  "iot_class": "calculated",
+  "issue_tracker": "https://github.com/Locale-Systems/hass-locale-notify/issues",
+  "requirements": [],
+  "version": "0.1.0"
+}

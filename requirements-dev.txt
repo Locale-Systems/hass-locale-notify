@@ -1,0 +1,11 @@
+# Test tooling. The integration itself has no requirements beyond Home
+# Assistant.
+#
+# pytest-homeassistant-custom-component pins an exact homeassistant, so ITS
+# version is the HA the suite tests against: pinned, and bumped deliberately
+# with HA releases. 0.13.371 = homeassistant 2026.10.0, which requires
+# Python >= 3.14.2; keep setup-python in test.yaml in step, and hacs.json's
+# "homeassistant" minimum no newer than this.
+pytest
+pytest-asyncio
+pytest-homeassistant-custom-component==0.13.371
